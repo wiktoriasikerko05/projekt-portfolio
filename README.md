@@ -46,7 +46,7 @@ Podczas realizacji projektów wykorzystano szerokie spektrum technologii:
 * **Frontend Core:** HTML5 (Semantyczny), CSS3 (Modern Layouts), JavaScript (ES6+).
 * **Backend & Data:** Python (Processing), Pandas (Analysis), LocalStorage API, JSON.
 * **Tools & Libraries:** Git, VS Code, Tkinter (GUI), Chart.js (Data Viz), FPDF.
-* **Deployment:** Netlify, Vercel, GitHub Pages.
+* **Deployment:** Netlify, Vercel.
 
 ---
 
