@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Stażowe | Wiktoria</title>
     <style>
-        /* --- DESIGN SYSTEM --- */
+      
         :root {
             --bg: #0f172a;
             --primary: #3b82f6;
@@ -26,7 +26,7 @@
             line-height: 1.6;
         }
 
-        /* TŁO ANIMOWANE */
+       
         .bg-blobs {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
             overflow: hidden;
@@ -41,10 +41,10 @@
 
         @keyframes float { 0% { transform: translate(0, 0); } 100% { transform: translate(30px, 50px); } }
 
-        /* CONTAINER */
+       
         .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
 
-        /* HERO SECTION */
+        
         header {
             min-height: 80vh;
             display: flex;
@@ -69,7 +69,7 @@
         }
         .btn:hover { background: transparent; border-color: var(--primary); box-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
 
-        /* SEKCJA PROJEKTÓW (Grid) */
+       
         .section-title { font-size: 2rem; margin: 80px 0 40px; border-left: 5px solid var(--accent); padding-left: 15px; }
 
         .projects-grid {
@@ -100,19 +100,19 @@
         .card-link { color: var(--primary); text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 5px; margin-top: auto; }
         .card-link:hover { text-decoration: underline; }
 
-        /* SKILLS SECTION */
+       
         .skills-container { display: flex; gap: 15px; flex-wrap: wrap; }
         .skill-box {
             padding: 15px 25px; background: var(--glass); border-radius: 12px;
             border: 1px solid var(--border); font-weight: bold;
         }
 
-        /* FOOTER */
+        
         footer { margin-top: 100px; padding: 40px 0; text-align: center; border-top: 1px solid var(--border); color: #64748b; }
 
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
-        /* RWD */
+      
         @media(max-width: 768px) {
             h1 { font-size: 2.5rem; }
             .subtitle { font-size: 1.1rem; }
@@ -178,9 +178,9 @@
             <div class="card">
                 <div class="card-icon">💰</div>
                 <h3>Smart Wallet</h3>
-                <p>Narzędzie do kontroli finansów osobistych z wizualizacją wydatków i kategoryzacją transakcji.</p>
+                <p>Symulator fintech z animacjami 3D kart płatniczych, celami oszczędnościowymi i kantorem walutowym. Analiza finansów w czasie rzeczywistym.</p>
                 <div class="tags">
-                    <span class="tag">CRUD</span>
+                    <span class="tag">3D Animation</span>
                     <span class="tag">Math Logic</span>
                     <span class="tag">Chart.js</span>
                 </div>
@@ -214,9 +214,9 @@
              <div class="card">
                 <div class="card-icon">✅</div>
                 <h3>Cloud To-Do</h3>
-                <p>Nowoczesna lista zadań z priorytetami, synchronizacją w chmurze i trybem ciemnym.</p>
+                <p>System zarządzania zadaniami z trwałością danych.</p>
                 <div class="tags">
-                    <span class="tag">Cloud Sync</span>
+                    <span class="tag">Local Persistence</span>
                     <span class="tag">Event Handling</span>
                     <span class="tag">UI/UX</span>
                 </div>
@@ -237,13 +237,13 @@
         </div>
 
         <footer>
-            <p>&copy; 2026 Wiktoria. Projekt zrealizowany w ramach praktyk zawodowych.</p>
+            <p>&copy; 2025 Wiktoria. Projekt zrealizowany w ramach praktyk zawodowych.</p>
         </footer>
 
     </div>
 
     <script>
-        // Efekt pisania na maszynie
+      
         const text = "Buduję nowoczesne aplikacje webowe.";
         let index = 0;
         function typeWriter() {
