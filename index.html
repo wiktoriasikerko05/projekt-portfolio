@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Stażowe | Wiktoria</title>
+    <style>
+        /* --- DESIGN SYSTEM --- */
+        :root {
+            --bg: #0f172a;
+            --primary: #3b82f6;
+            --secondary: #8b5cf6;
+            --accent: #ec4899;
+            --text: #f8fafc;
+            --glass: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* TŁO ANIMOWANE */
+        .bg-blobs {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+            overflow: hidden;
+        }
+        .blob {
+            position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.4;
+            animation: float 10s infinite alternate;
+        }
+        .b1 { width: 400px; height: 400px; background: var(--primary); top: -100px; left: -100px; }
+        .b2 { width: 300px; height: 300px; background: var(--accent); bottom: -50px; right: -50px; animation-delay: -5s; }
+        .b3 { width: 200px; height: 200px; background: var(--secondary); top: 40%; left: 60%; animation-duration: 15s; }
+
+        @keyframes float { 0% { transform: translate(0, 0); } 100% { transform: translate(30px, 50px); } }
+
+        /* CONTAINER */
+        .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+
+        /* HERO SECTION */
+        header {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        h1 { font-size: 4rem; font-weight: 800; margin-bottom: 10px; line-height: 1.1; }
+        .gradient-text {
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        
+        .subtitle { font-size: 1.5rem; color: #94a3b8; margin-bottom: 30px; }
+        .typing::after { content: '|'; animation: blink 1s infinite; }
+
+        .btn {
+            display: inline-block; padding: 12px 30px; background: var(--primary); color: white;
+            text-decoration: none; border-radius: 50px; font-weight: bold; transition: 0.3s;
+            border: 1px solid transparent;
+        }
+        .btn:hover { background: transparent; border-color: var(--primary); box-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
+
+        /* SEKCJA PROJEKTÓW (Grid) */
+        .section-title { font-size: 2rem; margin: 80px 0 40px; border-left: 5px solid var(--accent); padding-left: 15px; }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 25px;
+            transition: 0.3s;
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+        }
+        .card:hover { transform: translateY(-10px); border-color: var(--primary); background: rgba(255,255,255,0.08); }
+
+        .card-icon { font-size: 3rem; margin-bottom: 20px; }
+        .card h3 { font-size: 1.5rem; margin-bottom: 10px; }
+        .card p { color: #cbd5e1; font-size: 0.95rem; margin-bottom: 20px; flex-grow: 1; }
+        
+        .tags { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
+        .tag { font-size: 0.75rem; padding: 4px 10px; background: rgba(0,0,0,0.3); border-radius: 20px; color: var(--secondary); border: 1px solid var(--border); }
+
+        .card-link { color: var(--primary); text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 5px; margin-top: auto; }
+        .card-link:hover { text-decoration: underline; }
+
+        /* SKILLS SECTION */
+        .skills-container { display: flex; gap: 15px; flex-wrap: wrap; }
+        .skill-box {
+            padding: 15px 25px; background: var(--glass); border-radius: 12px;
+            border: 1px solid var(--border); font-weight: bold;
+        }
+
+        /* FOOTER */
+        footer { margin-top: 100px; padding: 40px 0; text-align: center; border-top: 1px solid var(--border); color: #64748b; }
+
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+        /* RWD */
+        @media(max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .subtitle { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-blobs">
+        <div class="blob b1"></div>
+        <div class="blob b2"></div>
+        <div class="blob b3"></div>
+    </div>
+
+    <div class="container">
+        
+        <header>
+            <p style="color: var(--accent); font-weight: bold; letter-spacing: 2px;">DZIENNIK PRAKTYK 2025</p>
+            <h1>Cześć, jestem <span class="gradient-text">Wiktoria</span></h1>
+            <p class="subtitle">Junior Developer & Stażystka. <span class="typing" id="typing-text"></span></p>
+            <a href="#projekty" class="btn">Zobacz moje prace ↓</a>
+        </header>
+
+        <h2 class="section-title" id="projekty">Zrealizowane Projekty (750h)</h2>
+        <div class="projects-grid">
+            
+            <div class="card">
+                <div class="card-icon">🧠</div>
+                <h3>FlashMaster</h3>
+                <p>Aplikacja SPA do nauki języków z algorytmem powtórek i własnym systemem zarządzania stanem.</p>
+                <div class="tags">
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">LocalStorage</span>
+                    <span class="tag">Algorytmy</span>
+                </div>
+                <a href="https://tranquil-cactus-58a1d3.netlify.app/" class="card-link" target="_blank">Zobacz Demo &rarr;</a>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🌱</div>
+                <h3>HabitFlow</h3>
+                <p>Zaawansowany tracker nawyków z grywalizacją, systemem backupu JSON i analityką postępów.</p>
+                <div class="tags">
+                    <span class="tag">Gamification</span>
+                    <span class="tag">Chart Logic</span>
+                    <span class="tag">File API</span>
+                </div>
+                <a href="https://habittrackerwiktoriasikerko.netlify.app/" class="card-link" target="_blank">Zobacz Demo &rarr;</a>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📊</div>
+                <h3>PDF Report Generator</h3>
+                <p>Aplikacja desktopowa (GUI) do automatyzacji raportów biznesowych. Konwersja CSV do PDF.</p>
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Pandas</span>
+                    <span class="tag">Tkinter</span>
+                </div>
+                <a href="https://github.com/wiktoriasikerko05/Projekt-nr-7---Raport-generator.git" class="card-link" target="_blank">Zobacz Kod na GitHub &rarr;</a>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">💰</div>
+                <h3>Smart Wallet</h3>
+                <p>Narzędzie do kontroli finansów osobistych z wizualizacją wydatków i kategoryzacją transakcji.</p>
+                <div class="tags">
+                    <span class="tag">CRUD</span>
+                    <span class="tag">Math Logic</span>
+                    <span class="tag">Chart.js</span>
+                </div>
+                <a href="https://smart-wallet-seven.vercel.app/" class="card-link" target="_blank">Zobacz Demo &rarr;</a>
+            </div>
+
+             <div class="card">
+                <div class="card-icon">🛍️</div>
+                <h3>Simple Shop</h3>
+                <p>Prosty sklep e-commerce z dynamicznym koszykiem, filtrowaniem produktów i sumowaniem zamówienia.</p>
+                <div class="tags">
+                    <span class="tag">E-commerce</span>
+                    <span class="tag">DOM Manipulation</span>
+                    <span class="tag">JSON</span>
+                </div>
+                <a href="https://simple-shop-neon.vercel.app/" class="card-link" target="_blank">Zobacz Demo &rarr;</a>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🌦️</div>
+                <h3>Weather App AI</h3>
+                <p>Aplikacja pogodowa wykorzystująca API w czasie rzeczywistym oraz elementy sztucznej inteligencji.</p>
+                <div class="tags">
+                    <span class="tag">Fetch API</span>
+                    <span class="tag">Async/Await</span>
+                    <span class="tag">OpenWeather</span>
+                </div>
+                <a href="https://weather-app-iota-opal-89.vercel.app/" class="card-link" target="_blank">Zobacz Demo &rarr;</a>
+            </div>
+
+             <div class="card">
+                <div class="card-icon">✅</div>
+                <h3>Cloud To-Do</h3>
+                <p>Nowoczesna lista zadań z priorytetami, synchronizacją w chmurze i trybem ciemnym.</p>
+                <div class="tags">
+                    <span class="tag">Cloud Sync</span>
+                    <span class="tag">Event Handling</span>
+                    <span class="tag">UI/UX</span>
+                </div>
+                <a href="https://cloud-todo-app.vercel.app/" class="card-link" target="_blank">Zobacz Demo &rarr;</a>
+            </div>
+
+        </div>
+
+        <h2 class="section-title">Stack Technologiczny</h2>
+        <div class="skills-container">
+            <div class="skill-box">HTML5 Semantic</div>
+            <div class="skill-box">CSS3 Flexbox/Grid</div>
+            <div class="skill-box">JavaScript ES6+</div>
+            <div class="skill-box">Python & Tkinter</div>
+            <div class="skill-box">Pandas Data Analysis</div>
+            <div class="skill-box">REST API</div>
+            <div class="skill-box">Git & GitHub</div>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Wiktoria. Projekt zrealizowany w ramach praktyk zawodowych.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        // Efekt pisania na maszynie
+        const text = "Buduję nowoczesne aplikacje webowe.";
+        let index = 0;
+        function typeWriter() {
+            if (index < text.length) {
+                document.getElementById("typing-text").textContent += text.charAt(index);
+                index++;
+                setTimeout(typeWriter, 100);
+            }
+        }
+        window.onload = typeWriter;
+    </script>
+</body>
+</html>
